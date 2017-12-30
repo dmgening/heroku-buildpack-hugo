@@ -50,6 +50,10 @@ if [ -e $BUILD_DIR/.hugotheme ]; then
   git clone $THEME_URL
 fi
 
+if [ -d "$ENV_DIR" -a -e "$ENV_DIR/HUGO_ARGS" ]; then
+  export HUGO_ARGS=$(cat "$ENV_DIR/HUGO_ARGS")
+fi
+
 # Build the site
 echo "\n-----> Building the site"
 cd $BUILD_DIR
